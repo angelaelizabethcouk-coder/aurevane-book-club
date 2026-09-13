@@ -129,7 +129,7 @@ function ContactPage() {
               </label>
               <label className="mt-5 block">
                 <span className="mb-2 block font-mono text-xs uppercase tracking-[0.14em] text-accent">
-                  Your letter
+                  YOUR PROPOSAL 
                 </span>
                 <textarea
                   required
