@@ -57,7 +57,7 @@ function ContactPage() {
                 The reading room
               </dt>
               <dd className="mt-1 font-sans text-sm text-foreground">
-                14 Lantern Row, Bloomsbury, London
+                CONNECT ON LIVE/FEATURES FOR READER 
               </dd>
             </div>
             <div>
@@ -73,7 +73,7 @@ function ContactPage() {
                 Always open
               </dt>
               <dd className="mt-1 font-sans text-sm text-foreground">
-                Tuesday to Saturday, 10am until the lamps come on
+                ALWAYS ACTIVE 24/7
               </dd>
             </div>
           </dl>
