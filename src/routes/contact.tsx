@@ -36,7 +36,7 @@ function ContactPage() {
             Join the club
           </p>
           <h1 className="text-balance font-serif text-5xl font-semibold leading-[1.02] tracking-tight text-foreground md:text-6xl">
-            Pull up a chair.
+            Let readers discover your book.
           </h1>
           <p className="mt-8 max-w-[48ch] text-pretty font-sans text-lg leading-relaxed text-muted-foreground">
             Tell us a little about yourself and how you like to read. We reply
@@ -58,7 +58,7 @@ function ContactPage() {
                 Letters
               </dt>
               <dd className="mt-1 font-sans text-sm text-foreground">
-                hello@aurevane.club
+                marvelovellous@gmail.com
               </dd>
             </div>
             <div>

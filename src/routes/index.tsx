@@ -228,7 +228,7 @@ function Index() {
               Membership
             </p>
             <h2 className="text-balance font-serif text-4xl font-medium leading-[1.05] md:text-6xl">
-              Pull up a chair.
+              Let readers discover your book.
               <br />
               <span className="italic">We'll keep the light on.</span>
             </h2>
