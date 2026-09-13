@@ -142,7 +142,7 @@ function ContactPage() {
                 type="submit"
                 className="mt-7 w-full rounded-full bg-primary px-7 py-3.5 font-sans text-sm font-medium text-primary-foreground ring-1 ring-primary transition-transform hover:-translate-y-0.5"
               >
-                Send the letter
+                MESSAGE US NOW
               </button>
             </form>
           )}
