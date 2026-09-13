@@ -52,10 +52,15 @@ function AboutPage() {
           A library that remembers your name.
         </h1>
         <p className="mt-8 max-w-[52ch] text-pretty font-sans text-lg leading-relaxed text-muted-foreground">
-          Aurevane began in 2019 as six friends around a kitchen table, arguing
-          kindly about a novel none of them had finished. Seven years later we
-          are a few hundred readers strong — and the rules have not changed:
-          read slowly, talk generously, and never rush the last chapter.
+          About Our Book Club
+
+          We are a community of passionate readers and authors brought together by a shared love of great books.
+
+          Our goal is to help make books more visible to the right readers while creating a welcoming space for meaningful discussions, authentic feedback, and lasting connections.
+
+          Whether you’re an author looking to introduce your book to engaged readers or a reader searching for your next great story, our club is a place to discover, connect, read, and share.
+
+          Join our community and let your story reach more readers.
         </p>
       </section>
 
