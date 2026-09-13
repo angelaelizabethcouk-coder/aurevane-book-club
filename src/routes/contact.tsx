@@ -39,9 +39,16 @@ function ContactPage() {
             Let readers discover your book.
           </h1>
           <p className="mt-8 max-w-[48ch] text-pretty font-sans text-lg leading-relaxed text-muted-foreground">
-            Tell us a little about yourself and how you like to read. We reply
-            to every letter personally — usually within a few days, always with
-            a recommendation attached.
+            Join Our Book Club
+          </p>
+          <p className="mt-4 max-w-[48ch] text-pretty font-sans text-lg leading-relaxed text-muted-foreground">
+            Make Your Book Visible to Readers.
+          </p>
+          <p className="mt-4 max-w-[48ch] text-pretty font-sans text-lg leading-relaxed text-muted-foreground">
+            Connect your book with passionate readers, discover meaningful discussions, and create opportunities for genuine reader engagement. Our book club brings authors and readers together through stories worth talking about.
+          </p>
+          <p className="mt-4 max-w-[48ch] text-pretty font-sans text-lg leading-relaxed text-muted-foreground">
+            Join us today and give your book the attention it deserves.
           </p>
 
           <dl className="mt-12 space-y-6 border-t border-border pt-10">
@@ -55,7 +62,7 @@ function ContactPage() {
             </div>
             <div>
               <dt className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
-                Letters
+                Contact us on
               </dt>
               <dd className="mt-1 font-sans text-sm text-foreground">
                 marvelovellous@gmail.com
@@ -63,7 +70,7 @@ function ContactPage() {
             </div>
             <div>
               <dt className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
-                Hours
+                Always open
               </dt>
               <dd className="mt-1 font-sans text-sm text-foreground">
                 Tuesday to Saturday, 10am until the lamps come on
