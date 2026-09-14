@@ -33,19 +33,17 @@ function Index() {
         <div className="grid items-center gap-10 lg:grid-cols-12">
           <div className="animate-rise lg:col-span-7">
             <div className="mb-7 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-accent">
-              <span>Vol. VII</span>
-              <span className="h-px w-10 bg-accent/50" />
-              <span>Est. 2019</span>
+              AUREVANE BOOK CLUB
             </div>
             <h1 className="text-balance font-serif text-[clamp(2.75rem,6.5vw,5.25rem)] font-semibold leading-[0.98] tracking-tight text-foreground">
-              A slow reading,
-              <br />
-              <span className="italic">kept in good company.</span>
+              Where Great Books Meet Engaged Readers
             </h1>
             <p className="mt-8 max-w-[46ch] text-pretty font-sans text-lg leading-relaxed text-muted-foreground">
-              Twelve novelists a year, one armchair, and conversations that last
-              long after the final page. Aurevane is a private table for people
-              who read slowly.
+              Discover inspiring books, connect with passionate readers, and give your story the opportunity to reach new audiences.
+
+              Join Aurevane Book Club — a welcoming community where authors and readers come together through meaningful conversations, fresh perspectives, and unforgettable stories.
+
+              Read. Connect. Discover.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
