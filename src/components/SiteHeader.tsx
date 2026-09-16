@@ -52,12 +52,38 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <Link
-            to="/contact"
-            className="rounded-full px-4 py-2 font-sans text-sm font-medium text-primary ring-1 ring-primary/40 transition-colors hover:bg-primary hover:text-background"
-          >
-            Join the Club
-          </Link>
+          {session ? (
+            <>
+              <Link
+                to="/members"
+                className="hidden rounded-full px-4 py-2 font-sans text-sm font-medium text-primary ring-1 ring-primary/40 transition-colors hover:bg-primary hover:text-background sm:inline-flex"
+              >
+                My reading room
+              </Link>
+              <button
+                type="button"
+                onClick={handleSignOut}
+                className="font-sans text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Sign out
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/auth"
+                className="hidden font-sans text-sm text-muted-foreground transition-colors hover:text-foreground sm:inline"
+              >
+                Member sign in
+              </Link>
+              <Link
+                to="/contact"
+                className="rounded-full px-4 py-2 font-sans text-sm font-medium text-primary ring-1 ring-primary/40 transition-colors hover:bg-primary hover:text-background"
+              >
+                Join the Club
+              </Link>
+            </>
+          )}
           <button
             type="button"
             aria-label="Toggle menu"
