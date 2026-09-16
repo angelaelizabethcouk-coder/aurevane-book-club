@@ -1,5 +1,9 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
+
+import { supabase } from "@/integrations/supabase/client";
+import { useSession } from "@/hooks/useSession";
 
 const navItems = [
   { to: "/about", label: "About" },
@@ -11,6 +15,18 @@ const navItems = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const { session } = useSession();
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  async function handleSignOut() {
+    setOpen(false);
+    await queryClient.cancelQueries();
+    queryClient.clear();
+    await supabase.auth.signOut();
+    navigate({ to: "/auth", replace: true });
+  }
+
 
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-background/85 backdrop-blur">
@@ -36,12 +52,38 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <Link
-            to="/contact"
-            className="rounded-full px-4 py-2 font-sans text-sm font-medium text-primary ring-1 ring-primary/40 transition-colors hover:bg-primary hover:text-background"
-          >
-            Join the Club
-          </Link>
+          {session ? (
+            <>
+              <Link
+                to="/members"
+                className="hidden rounded-full px-4 py-2 font-sans text-sm font-medium text-primary ring-1 ring-primary/40 transition-colors hover:bg-primary hover:text-background sm:inline-flex"
+              >
+                My reading room
+              </Link>
+              <button
+                type="button"
+                onClick={handleSignOut}
+                className="font-sans text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Sign out
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/auth"
+                className="hidden font-sans text-sm text-muted-foreground transition-colors hover:text-foreground sm:inline"
+              >
+                Member sign in
+              </Link>
+              <Link
+                to="/contact"
+                className="rounded-full px-4 py-2 font-sans text-sm font-medium text-primary ring-1 ring-primary/40 transition-colors hover:bg-primary hover:text-background"
+              >
+                Join the Club
+              </Link>
+            </>
+          )}
           <button
             type="button"
             aria-label="Toggle menu"
@@ -78,6 +120,38 @@ export function SiteHeader() {
                 </Link>
               </li>
             ))}
+            {session ? (
+              <>
+                <li>
+                  <Link
+                    to="/members"
+                    onClick={() => setOpen(false)}
+                    className="block py-1 transition-colors hover:text-foreground"
+                  >
+                    My reading room
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/threads"
+                    onClick={() => setOpen(false)}
+                    className="block py-1 transition-colors hover:text-foreground"
+                  >
+                    Discussions
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <li>
+                <Link
+                  to="/auth"
+                  onClick={() => setOpen(false)}
+                  className="block py-1 transition-colors hover:text-foreground"
+                >
+                  Member sign in
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
       )}
