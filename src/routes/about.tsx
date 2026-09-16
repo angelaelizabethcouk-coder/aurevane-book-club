@@ -68,12 +68,12 @@ function AboutPage() {
         <div className="grid items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <img
-              src={heroChair}
-              alt="Hardback novels and old letters on a worn leather armchair in warm lamplight"
-              width={1024}
-              height={1280}
+              src={aurevaneLogo.url}
+              alt="Aurevane Book Club logo — Read. Connect. Discover."
+              width={1248}
+              height={1248}
               loading="lazy"
-              className="aspect-[4/5] w-full rounded-3xl object-cover outline-1 -outline-offset-1 outline-foreground/5"
+              className="aspect-square w-full rounded-3xl bg-card object-contain p-6 outline-1 -outline-offset-1 outline-foreground/5"
             />
           </div>
           <div className="lg:col-span-7">
