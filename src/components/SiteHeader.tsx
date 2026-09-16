@@ -4,8 +4,8 @@ import { useState } from "react";
 const navItems = [
   { to: "/about", label: "About" },
   { to: "/books", label: "Books" },
-  { to: "/events", label: "Events" },
   { to: "/authors", label: "Authors" },
+  { to: "/events", label: "Live event" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
