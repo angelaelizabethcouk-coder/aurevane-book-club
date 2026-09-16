@@ -120,6 +120,38 @@ export function SiteHeader() {
                 </Link>
               </li>
             ))}
+            {session ? (
+              <>
+                <li>
+                  <Link
+                    to="/members"
+                    onClick={() => setOpen(false)}
+                    className="block py-1 transition-colors hover:text-foreground"
+                  >
+                    My reading room
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/threads"
+                    onClick={() => setOpen(false)}
+                    className="block py-1 transition-colors hover:text-foreground"
+                  >
+                    Discussions
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <li>
+                <Link
+                  to="/auth"
+                  onClick={() => setOpen(false)}
+                  className="block py-1 transition-colors hover:text-foreground"
+                >
+                  Member sign in
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
       )}
