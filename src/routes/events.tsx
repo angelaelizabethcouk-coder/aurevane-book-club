@@ -1,23 +1,34 @@
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 
-import { allEvents } from "@/data/club";
+import live1 from "@/assets/live/live-1.jpg.asset.json";
+import live2 from "@/assets/live/live-2.jpg.asset.json";
+import live3 from "@/assets/live/live-3.jpg.asset.json";
+import live4 from "@/assets/live/live-4.jpg.asset.json";
+import live5 from "@/assets/live/live-5.jpg.asset.json";
+import live6 from "@/assets/live/live-6.jpg.asset.json";
+import live7 from "@/assets/live/live-7.jpg.asset.json";
+import live8 from "@/assets/live/live-8.jpg.asset.json";
+
+const gallery = [live4, live8, live1, live2, live3, live5, live6, live7];
 
 export const Route = createFileRoute("/events")({
   head: () => ({
     meta: [
-      { title: "Events — Aurevane Book Club" },
+      { title: "Live Events — Aurevane Book Club" },
       {
         name: "description",
         content:
-          "Upcoming Aurevane book discussions, author evenings, and online salons. Reserve a seat at the table.",
+          "Photos from Aurevane Book Club live sessions, where authors and readers meet online.",
       },
-      { property: "og:title", content: "Events — Aurevane Book Club" },
+      { property: "og:title", content: "Live Events — Aurevane Book Club" },
       {
         property: "og:description",
-        content: "Upcoming discussions, author evenings, and online salons.",
+        content: "Photos from our live online book club sessions.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: live4.url },
+      { name: "twitter:image", content: live4.url },
     ],
   }),
   component: EventsPage,
@@ -26,54 +37,22 @@ export const Route = createFileRoute("/events")({
 function EventsPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24 pt-16 lg:pt-24">
-      <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-accent">
-        Gatherings
-      </p>
-      <h1 className="max-w-[18ch] text-balance font-serif text-5xl font-semibold leading-[1.02] tracking-tight text-foreground md:text-6xl">
-        The season's discussions.
-      </h1>
-      <p className="mt-8 max-w-[52ch] text-pretty font-sans text-lg leading-relaxed text-muted-foreground">
-        In the reading room, at the Bindery, or online by lamplight. Members
-        reserve a seat; guests are welcome at every open salon.
-      </p>
-
-      <ol className="mt-16 divide-y divide-border border-y border-border">
-        {allEvents.map((event, i) => (
-          <li
-            key={`${event.date}-${event.title}`}
-            className="group animate-rise grid grid-cols-[auto_1fr] items-baseline gap-x-6 gap-y-1 py-7 sm:grid-cols-[110px_1fr_auto]"
+      <h1 className="sr-only">Aurevane Book Club live events</h1>
+      <div className="grid gap-5 sm:grid-cols-2">
+        {gallery.map((image, i) => (
+          <figure
+            key={image.url}
+            className="animate-rise overflow-hidden rounded-2xl border border-border bg-card"
             style={{ animationDelay: `${Math.min(i, 5) * 80}ms` }}
           >
-            <div className="font-mono text-sm text-accent">{event.date}</div>
-            <div>
-              <h2 className="font-serif text-2xl text-foreground md:text-3xl">
-                {event.title}
-              </h2>
-              <p className="mt-1 font-sans text-sm text-muted-foreground">{event.detail}</p>
-            </div>
-            <Link
-              to="/contact"
-              className="hidden font-sans text-sm text-foreground opacity-0 transition-opacity group-hover:opacity-100 sm:inline"
-            >
-              Reserve →
-            </Link>
-          </li>
+            <img
+              src={image.url}
+              alt="Aurevane Book Club live session"
+              loading={i > 1 ? "lazy" : "eager"}
+              className="h-full w-full object-cover"
+            />
+          </figure>
         ))}
-      </ol>
-
-      <div className="mt-16 rounded-3xl bg-primary px-8 py-12 text-center text-primary-foreground md:px-16">
-        <h2 className="text-balance font-serif text-3xl font-medium md:text-4xl">
-          Not a member yet?
-        </h2>
-        <p className="mx-auto mt-4 max-w-[46ch] text-pretty font-sans text-primary-foreground/75">
-          Your first gathering is on us. Come listen, stay for the argument.
-        </p>
-        <Link
-          to="/contact"
-          className="mt-7 inline-block rounded-full bg-accent px-7 py-3.5 font-sans text-sm font-medium text-accent-foreground transition-transform hover:-translate-y-0.5"
-        >
-          Join the Club
-        </Link>
       </div>
     </main>
   );
