@@ -10,20 +10,33 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthorsRouteImport } from './routes/authors'
 import { Route as BooksRouteImport } from './routes/books'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EventsRouteImport } from './routes/events'
+import { Route as AuthenticatedMembersRouteImport } from './routes/_authenticated/members'
+import { Route as AuthenticatedThreadsRouteImport } from './routes/_authenticated/threads'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthorsRoute = AuthorsRouteImport.update({
@@ -46,44 +59,94 @@ const EventsRoute = EventsRouteImport.update({
   path: '/events',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedMembersRoute = AuthenticatedMembersRouteImport.update({
+  id: '/members',
+  path: '/members',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedThreadsRoute = AuthenticatedThreadsRouteImport.update({
+  id: '/threads',
+  path: '/threads',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/authors': typeof AuthorsRoute
   '/books': typeof BooksRoute
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
+  '/members': typeof AuthenticatedMembersRoute
+  '/threads': typeof AuthenticatedThreadsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/authors': typeof AuthorsRoute
   '/books': typeof BooksRoute
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
+  '/members': typeof AuthenticatedMembersRoute
+  '/threads': typeof AuthenticatedThreadsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/authors': typeof AuthorsRoute
   '/books': typeof BooksRoute
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
+  '/_authenticated/members': typeof AuthenticatedMembersRoute
+  '/_authenticated/threads': typeof AuthenticatedThreadsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/authors' | '/books' | '/contact' | '/events'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/authors'
+    | '/books'
+    | '/contact'
+    | '/events'
+    | '/members'
+    | '/threads'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/authors' | '/books' | '/contact' | '/events'
+  to:
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/authors'
+    | '/books'
+    | '/contact'
+    | '/events'
+    | '/members'
+    | '/threads'
   id:
-    '__root__' | '/' | '/about' | '/authors' | '/books' | '/contact' | '/events'
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/about'
+    | '/auth'
+    | '/authors'
+    | '/books'
+    | '/contact'
+    | '/events'
+    | '/_authenticated/members'
+    | '/_authenticated/threads'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
+  AuthRoute: typeof AuthRoute
   AuthorsRoute: typeof AuthorsRoute
   BooksRoute: typeof BooksRoute
   ContactRoute: typeof ContactRoute
@@ -99,11 +162,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/authors': {
@@ -134,12 +211,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/members': {
+      id: '/_authenticated/members'
+      path: '/members'
+      fullPath: '/members'
+      preLoaderRoute: typeof AuthenticatedMembersRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/threads': {
+      id: '/_authenticated/threads'
+      path: '/threads'
+      fullPath: '/threads'
+      preLoaderRoute: typeof AuthenticatedThreadsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedMembersRoute: typeof AuthenticatedMembersRoute
+  AuthenticatedThreadsRoute: typeof AuthenticatedThreadsRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedMembersRoute: AuthenticatedMembersRoute,
+  AuthenticatedThreadsRoute: AuthenticatedThreadsRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
+  AuthRoute: AuthRoute,
   AuthorsRoute: AuthorsRoute,
   BooksRoute: BooksRoute,
   ContactRoute: ContactRoute,
