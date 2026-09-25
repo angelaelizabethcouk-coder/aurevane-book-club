@@ -45,7 +45,7 @@ export const Route = createFileRoute("/_authenticated/threads")({
 });
 
 const inputClass =
-  "mt-2 w-full rounded-xl border border-border bg-card px-4 py-3 font-sans text-sm text-foreground outline-none transition-colors focus:border-primary";
+  "mt-2 w-full border border-border bg-background px-4 py-3 font-sans text-sm text-foreground outline-none transition-colors focus:border-accent";
 
 function ThreadsPage() {
   const { user } = Route.useRouteContext();
@@ -113,16 +113,16 @@ function ThreadsPage() {
     };
 
   return (
-    <main className="mx-auto max-w-4xl px-6 pb-24 pt-16 lg:pt-24">
+    <main className="mx-auto max-w-5xl px-6 pb-28 pt-20 lg:px-8 lg:pt-28">
       <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-accent">
         Members only
       </p>
-      <h1 className="font-serif text-4xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-5xl">
+      <h1 className="font-serif text-5xl leading-[1.05] text-primary md:text-6xl">
         Discussion threads.
       </h1>
 
       <form
-        className="mt-10 space-y-5 rounded-3xl border border-border bg-card p-6 md:p-8"
+        className="mt-10 space-y-5 border border-primary/25 bg-card p-6 shadow-[10px_10px_0_var(--color-secondary)] md:p-8"
         onSubmit={(e) => {
           e.preventDefault();
           addThread.mutate();
@@ -155,7 +155,7 @@ function ThreadsPage() {
         <button
           type="submit"
           disabled={addThread.isPending}
-          className="rounded-full bg-primary px-6 py-3 font-sans text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5 disabled:opacity-60"
+          className="bg-primary px-6 py-3 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground disabled:opacity-60"
         >
           {addThread.isPending ? "Posting…" : "Start the thread"}
         </button>
@@ -177,7 +177,7 @@ function ThreadsPage() {
             return (
               <li
                 key={thread.id}
-                className="rounded-3xl border border-border bg-card p-6 md:p-8"
+                className="border border-primary/25 bg-card p-6 md:p-8"
               >
                 <div className="flex items-center gap-3">
                   <MemberAvatar
@@ -263,12 +263,12 @@ function ReplyForm({
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Add to the conversation…"
-        className="min-w-[220px] flex-1 rounded-xl border border-border bg-background px-4 py-3 font-sans text-sm text-foreground outline-none transition-colors focus:border-primary"
+         className="min-w-[220px] flex-1 border border-border bg-background px-4 py-3 font-sans text-sm text-foreground outline-none transition-colors focus:border-accent"
       />
       <button
         type="submit"
         disabled={pending}
-        className="rounded-full px-5 py-2.5 font-sans text-sm font-medium text-primary ring-1 ring-primary/40 transition-colors hover:bg-accent-soft/40 disabled:opacity-60"
+         className="px-5 py-3 font-sans text-xs font-semibold uppercase tracking-[0.12em] text-primary ring-1 ring-primary transition-colors hover:border-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-60"
       >
         Reply
       </button>

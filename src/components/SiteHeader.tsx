@@ -29,23 +29,22 @@ export function SiteHeader() {
 
 
   return (
-    <header className="sticky top-0 z-30 border-b border-border bg-background/85 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+    <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur-sm">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
         <Link
           to="/"
-          className="font-serif text-2xl tracking-tight text-foreground"
+          className="font-serif text-2xl uppercase text-primary transition-colors hover:text-accent"
           onClick={() => setOpen(false)}
         >
-          Aurevane <span className="text-accent">·</span>{" "}
-          <span className="font-medium italic">Book Club</span>
+          Aurevane <span className="italic">Book Club</span>
         </Link>
-        <nav className="hidden items-center gap-8 font-sans text-sm text-muted-foreground md:flex">
+        <nav className="hidden items-center gap-8 font-sans text-xs font-medium uppercase tracking-[0.14em] text-foreground lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground" }}
+              className="transition-colors hover:text-accent"
+              activeProps={{ className: "text-accent" }}
             >
               {item.label}
             </Link>
@@ -56,14 +55,14 @@ export function SiteHeader() {
             <>
               <Link
                 to="/members"
-                className="hidden rounded-full px-4 py-2 font-sans text-sm font-medium text-primary ring-1 ring-primary/40 transition-colors hover:bg-primary hover:text-background sm:inline-flex"
+                className="hidden px-4 py-2 font-sans text-xs font-medium uppercase tracking-[0.12em] text-primary ring-1 ring-primary transition-colors hover:border-accent hover:bg-accent hover:text-accent-foreground sm:inline-flex"
               >
                 My reading room
               </Link>
               <button
                 type="button"
                 onClick={handleSignOut}
-                className="font-sans text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="font-sans text-xs uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-accent"
               >
                 Sign out
               </button>
@@ -72,13 +71,13 @@ export function SiteHeader() {
             <>
               <Link
                 to="/auth"
-                className="hidden font-sans text-sm text-muted-foreground transition-colors hover:text-foreground sm:inline"
+                className="hidden font-sans text-xs uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-accent sm:inline"
               >
                 Member sign in
               </Link>
               <Link
                 to="/contact"
-                className="rounded-full px-4 py-2 font-sans text-sm font-medium text-primary ring-1 ring-primary/40 transition-colors hover:bg-primary hover:text-background"
+                className="bg-primary px-5 py-2.5 font-sans text-xs font-medium uppercase tracking-[0.12em] text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 Join the Club
               </Link>
@@ -89,7 +88,7 @@ export function SiteHeader() {
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="grid size-9 place-items-center rounded-full ring-1 ring-border md:hidden"
+            className="grid size-9 place-items-center ring-1 ring-primary lg:hidden"
           >
             <span className="relative block h-3 w-4">
               <span
@@ -106,8 +105,8 @@ export function SiteHeader() {
         </div>
       </div>
       {open && (
-        <nav className="border-t border-border bg-background px-6 py-4 md:hidden">
-          <ul className="space-y-3 font-sans text-sm text-muted-foreground">
+        <nav className="border-t border-border bg-background px-6 py-5 lg:hidden">
+          <ul className="space-y-3 font-sans text-xs uppercase tracking-[0.14em] text-foreground">
             {navItems.map((item) => (
               <li key={item.to}>
                 <Link
