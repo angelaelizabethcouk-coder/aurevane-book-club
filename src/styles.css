@@ -6,7 +6,8 @@
 
 /*
  * Aurevane Book Club design system.
- * Warm parchment, ink green, forest, brass. Serif-led editorial typography.
+ * Ivory, oxblood burgundy, antique gold, and soft taupe.
+ * Instrument Serif and Work Sans create a refined editorial character.
  */
 
 @theme inline {
@@ -41,9 +42,9 @@
 }
 
 @theme {
-  --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-sans: "Work Sans", system-ui, sans-serif;
+  --font-mono: "Work Sans", system-ui, sans-serif;
   --ease-literary: cubic-bezier(0.32, 0.72, 0, 1);
   --animate-rise: rise 0.6s var(--ease-literary) both;
 
@@ -60,27 +61,27 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(0.94 0.022 95);
-  --foreground: oklch(0.26 0.035 170);
-  --card: oklch(0.955 0.02 95);
-  --card-foreground: oklch(0.26 0.035 170);
-  --popover: oklch(0.955 0.02 95);
-  --popover-foreground: oklch(0.26 0.035 170);
-  --primary: oklch(0.37 0.06 168);
-  --primary-foreground: oklch(0.94 0.022 95);
-  --secondary: oklch(0.9 0.03 95);
-  --secondary-foreground: oklch(0.37 0.06 168);
-  --muted: oklch(0.9 0.03 95);
-  --muted-foreground: oklch(0.48 0.04 168);
-  --accent: oklch(0.62 0.11 78);
-  --accent-foreground: oklch(0.26 0.035 170);
-  --accent-soft: oklch(0.85 0.055 92);
+  --radius: 0.25rem;
+  --background: oklch(0.96007 0.01476 80.71);
+  --foreground: oklch(0.38157 0.11826 11.71);
+  --card: oklch(1 0 89.88);
+  --card-foreground: oklch(0.38157 0.11826 11.71);
+  --popover: oklch(1 0 89.88);
+  --popover-foreground: oklch(0.38157 0.11826 11.71);
+  --primary: oklch(0.38157 0.11826 11.71);
+  --primary-foreground: oklch(0.96007 0.01476 80.71);
+  --secondary: oklch(0.85591 0.02092 74.64);
+  --secondary-foreground: oklch(0.38157 0.11826 11.71);
+  --muted: oklch(0.85591 0.02092 74.64);
+  --muted-foreground: oklch(0.46 0.055 20);
+  --accent: oklch(0.65602 0.09425 78.95);
+  --accent-foreground: oklch(0.38157 0.11826 11.71);
+  --accent-soft: oklch(0.85591 0.02092 74.64);
   --destructive: oklch(0.55 0.19 30);
   --destructive-foreground: oklch(0.94 0.022 95);
-  --border: oklch(0.26 0.035 170 / 14%);
-  --input: oklch(0.26 0.035 170 / 18%);
-  --ring: oklch(0.62 0.11 78);
+  --border: oklch(0.38157 0.11826 11.71 / 18%);
+  --input: oklch(0.38157 0.11826 11.71 / 28%);
+  --ring: oklch(0.65602 0.09425 78.95);
 }
 
 .dark {
@@ -120,5 +121,24 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

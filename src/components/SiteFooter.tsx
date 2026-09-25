@@ -5,12 +5,11 @@ export function SiteFooter() {
   const [subscribed, setSubscribed] = useState(false);
 
   return (
-    <footer className="border-t border-border bg-background">
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-12">
+    <footer className="border-t border-primary/20 bg-background">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-12 lg:px-8">
         <div className="md:col-span-5">
-          <p className="font-serif text-3xl tracking-tight text-foreground">
-            Aurevane <span className="text-accent">·</span>{" "}
-            <span className="font-medium italic">Book Club</span>
+          <p className="font-serif text-3xl uppercase text-primary">
+            Aurevane <span className="italic">Book Club</span>
           </p>
           <p className="mt-4 max-w-[38ch] text-pretty font-sans text-sm text-muted-foreground">
             A private table for slow readers. Est. 2019, by lamplight.
@@ -83,11 +82,11 @@ export function SiteFooter() {
                 type="email"
                 required
                 placeholder="you@address.com"
-                className="min-w-0 flex-1 rounded-l-full border border-border bg-transparent px-4 py-2.5 text-sm text-foreground outline-none placeholder:text-muted-foreground/70 focus:border-accent/60"
+                className="min-w-0 flex-1 border border-primary bg-transparent px-4 py-2.5 text-sm text-foreground outline-none placeholder:text-muted-foreground/70 focus:border-accent"
               />
               <button
                 type="submit"
-                className="rounded-r-full bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                className="bg-primary px-5 text-xs font-medium uppercase tracking-[0.12em] text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 Sign up
               </button>
@@ -98,7 +97,7 @@ export function SiteFooter() {
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col justify-between gap-2 px-6 py-6 font-mono text-xs text-muted-foreground sm:flex-row">
           <span>© 2026 Aurevane Book Club</span>
-          <span>Set in Cormorant &amp; Inter</span>
+          <span>Set in Instrument Serif &amp; Work Sans</span>
         </div>
       </div>
     </footer>
