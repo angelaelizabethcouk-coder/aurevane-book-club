@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# Aurevane: Your Literary Haven
+
+Create a modern, elegant book club website called “Aurevane Book Club.” Use a warm literary design with a premium, welcoming feel. Include a homepage with hero section, featured books, upcoming book discussions, author spotlight, member testimonials, and a clear “Join the Club” button. Add About, Books, Events, Authors, and Contact pages. Make it fully responsive, clean, professional, and easy to navigate.
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://aurevane-book-club.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/cb74c84b-e428-48e3-92e3-0516d7c6ada3).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
