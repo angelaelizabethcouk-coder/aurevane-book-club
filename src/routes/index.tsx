@@ -29,77 +29,74 @@ function Index() {
   return (
     <main>
       {/* HERO */}
-      <section className="mx-auto max-w-6xl px-6 pb-20 pt-16 lg:pt-24">
-        <div className="grid items-center gap-10 lg:grid-cols-12">
-          <div className="animate-rise lg:col-span-7">
-            <div className="mb-7 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-accent">
+      <section className="relative flex min-h-[calc(100vh-5rem)] items-center overflow-hidden bg-primary px-6 py-20 text-primary-foreground md:min-h-[760px] lg:px-8">
+        <img
+          src={heroChair}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover opacity-30 mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-primary/55" />
+        <div className="relative mx-auto w-full max-w-7xl">
+          <div className="animate-rise max-w-4xl text-center md:mx-auto">
+            <div className="mb-7 font-sans text-xs font-semibold uppercase tracking-[0.22em] text-accent">
               AUREVANE BOOK CLUB
             </div>
-            <h1 className="text-balance font-serif text-[clamp(2.75rem,6.5vw,5.25rem)] font-semibold leading-[0.98] tracking-tight text-foreground">
+            <h1 className="text-balance font-serif text-6xl leading-[0.98] text-primary-foreground md:text-8xl">
               Where Great Books Meet Engaged Readers
             </h1>
-            <p className="mt-8 max-w-[46ch] text-pretty font-sans text-lg leading-relaxed text-muted-foreground">
+            <p className="mx-auto mt-8 max-w-[52ch] whitespace-pre-line text-pretty font-sans text-lg leading-relaxed text-primary-foreground/80 md:text-xl">
               Discover inspiring books, connect with passionate readers, and give your story the opportunity to reach new audiences.
 
               Join Aurevane Book Club — a welcoming community where authors and readers come together through meaningful conversations, fresh perspectives, and unforgettable stories.
 
               Read. Connect. Discover.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
               <Link
                 to="/contact"
-                className="rounded-full bg-primary px-7 py-3.5 font-sans text-sm font-medium text-primary-foreground shadow-sm ring-1 ring-primary transition-transform hover:-translate-y-0.5"
+                className="bg-primary-foreground px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 Join the Club
               </Link>
               <a
                 href="#books"
-                className="inline-flex items-center gap-2 font-sans text-sm text-foreground transition-colors hover:text-accent"
+                className="inline-flex items-center justify-center border border-primary-foreground/50 px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:border-accent hover:text-accent"
               >
                 This month's list <span aria-hidden>→</span>
               </a>
             </div>
           </div>
-          <div className="relative lg:col-span-5">
-            <div className="absolute -left-6 -top-6 h-full w-full -rotate-2 rounded-3xl bg-accent-soft/40" />
-            <img
-              src={heroChair}
-              alt="A stack of well-worn hardback novels resting on a leather armchair beside old letters"
-              width={1024}
-              height={1280}
-              className="animate-rise relative aspect-[4/5] w-full rounded-3xl object-cover outline-1 -outline-offset-1 outline-foreground/5 [animation-delay:120ms]"
-            />
-          </div>
         </div>
       </section>
 
       {/* FEATURED BOOKS */}
-      <section id="books" className="border-t border-border bg-background/60">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <div className="mb-12 flex items-end justify-between">
+      <section id="books" className="bg-background">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+          <div className="mb-16 flex items-end justify-between border-b border-primary/20 pb-5">
             <div>
               <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-accent">
                 (a) This Season
               </p>
-              <h2 className="text-balance font-serif text-4xl font-medium text-foreground md:text-5xl">
+              <h2 className="text-balance font-serif text-5xl italic text-primary md:text-6xl">
                 On the shelf
               </h2>
             </div>
             <Link
               to="/books"
-              className="hidden font-sans text-sm text-foreground transition-colors hover:text-accent sm:inline"
+              className="hidden border-b border-primary font-sans text-xs font-medium uppercase tracking-[0.14em] text-primary transition-colors hover:border-accent hover:text-accent sm:inline"
             >
               Full catalogue →
             </Link>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {featuredBooks.map((book, i) => (
               <article
                 key={book.title}
-                className="group animate-rise"
+                className={`group animate-rise p-4 ${i % 2 === 0 ? "bg-card" : "bg-secondary/55"} ${i % 2 === 1 ? "lg:mt-16" : ""}`}
                 style={{ animationDelay: `${i * 80}ms` }}
               >
-                <div className="overflow-hidden rounded-xl ring-1 ring-border transition-transform duration-300 group-hover:-translate-y-1.5">
+                <div className="overflow-hidden ring-1 ring-border transition-transform duration-500 group-hover:-translate-y-1.5">
                   <img
                     src={book.cover}
                     alt={`Cover of ${book.title} by ${book.author}`}
@@ -121,14 +118,15 @@ function Index() {
       </section>
 
       {/* EVENTS */}
-      <section id="events" className="mx-auto max-w-6xl px-6 py-20">
+      <section id="events" className="bg-primary px-6 py-24 text-primary-foreground lg:px-8">
+        <div className="mx-auto max-w-7xl">
         <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-accent">
           (b) Gatherings
         </p>
-        <h2 className="mb-12 text-balance font-serif text-4xl font-medium text-foreground md:text-5xl">
+        <h2 className="mb-12 text-balance font-serif text-5xl text-primary-foreground md:text-6xl">
           Upcoming discussions
         </h2>
-        <ol className="divide-y divide-border border-y border-border">
+        <ol className="divide-y divide-primary-foreground/20 border-y border-primary-foreground/20">
           {events.map((event, i) => (
             <li
               key={event.date}
@@ -137,23 +135,24 @@ function Index() {
             >
               <div className="font-mono text-sm text-accent">{event.date}</div>
               <div>
-                <h3 className="font-serif text-2xl text-foreground">{event.title}</h3>
-                <p className="mt-1 font-sans text-sm text-muted-foreground">{event.detail}</p>
+                <h3 className="font-serif text-2xl text-primary-foreground">{event.title}</h3>
+                <p className="mt-1 font-sans text-sm text-primary-foreground/70">{event.detail}</p>
               </div>
               <Link
                 to="/events"
-                className="hidden font-sans text-sm text-foreground opacity-0 transition-opacity group-hover:opacity-100 sm:inline"
+                className="hidden font-sans text-sm text-primary-foreground opacity-0 transition-colors group-hover:text-accent group-hover:opacity-100 sm:inline"
               >
                 Reserve →
               </Link>
             </li>
           ))}
         </ol>
+        </div>
       </section>
 
       {/* AUTHOR SPOTLIGHT */}
       <section id="authors" className="bg-primary text-primary-foreground">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 lg:grid-cols-12">
+        <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 py-24 lg:grid-cols-12 lg:px-8">
           <div className="order-2 lg:order-1 lg:col-span-5">
             <img
               src={authorHalloran}
@@ -161,7 +160,7 @@ function Index() {
               width={1024}
               height={1280}
               loading="lazy"
-              className="aspect-[4/5] w-full rounded-3xl object-cover outline-1 -outline-offset-1 outline-foreground/10"
+              className="aspect-[4/5] w-full border-[10px] border-accent/20 object-cover"
             />
           </div>
           <div className="order-1 lg:order-2 lg:col-span-7">
@@ -189,7 +188,7 @@ function Index() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="mx-auto max-w-6xl px-6 py-24">
+      <section className="mx-auto max-w-7xl px-6 py-28 lg:px-8">
         <p className="mb-12 text-center font-mono text-xs uppercase tracking-[0.22em] text-accent">
           (d) From the table
         </p>
@@ -212,31 +211,24 @@ function Index() {
       </section>
 
       {/* CTA BAND */}
-      <section id="join" className="mx-auto max-w-6xl px-6 pb-24">
-        <div className="relative overflow-hidden rounded-3xl bg-primary px-8 py-16 text-center text-primary-foreground md:px-16">
-          <div
-            className="absolute inset-0 opacity-[0.07]"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(45deg,#fff 0 1px,transparent 1px 14px)",
-            }}
-          />
-          <div className="relative">
+       <section id="join" className="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
+         <div className="border border-primary/20 bg-secondary/35 px-8 py-20 text-center md:px-16">
+           <div>
             <p className="mb-4 font-mono text-xs uppercase tracking-[0.22em] text-accent">
               Membership
             </p>
-            <h2 className="text-balance font-serif text-4xl font-medium leading-[1.05] md:text-6xl">
+             <h2 className="text-balance font-serif text-4xl leading-[1.05] text-primary md:text-6xl">
               Let readers discover your book.
               <br />
               <span className="italic">We'll keep the light on.</span>
             </h2>
-            <p className="mx-auto mt-6 max-w-[44ch] text-pretty font-sans text-lg text-primary-foreground/75">
+             <p className="mx-auto mt-6 max-w-[44ch] text-pretty font-sans text-lg text-muted-foreground">
               Twelve books, four gatherings, one standing reservation at the
               table. No streaks, no deadlines — just good reading.
             </p>
             <Link
               to="/contact"
-              className="mt-9 inline-block rounded-full bg-accent px-8 py-4 font-sans text-sm font-medium text-accent-foreground transition-transform hover:-translate-y-0.5"
+               className="mt-9 inline-block bg-primary px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
             >
               Join the Club
             </Link>
