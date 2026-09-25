@@ -36,13 +36,13 @@ export const Route = createFileRoute("/events")({
 
 function EventsPage() {
   return (
-    <main className="mx-auto max-w-6xl px-6 pb-24 pt-16 lg:pt-24">
+    <main className="bg-primary px-6 pb-28 pt-20 lg:px-8 lg:pt-28">
       <h1 className="sr-only">Aurevane Book Club live events</h1>
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="mx-auto grid max-w-7xl gap-5 sm:grid-cols-2">
         {gallery.map((image, i) => (
           <figure
             key={image.url}
-            className="animate-rise overflow-hidden rounded-2xl border border-border bg-card"
+            className="animate-rise overflow-hidden border border-primary-foreground/20 bg-card p-2"
             style={{ animationDelay: `${Math.min(i, 5) * 80}ms` }}
           >
             <img

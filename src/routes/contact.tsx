@@ -23,19 +23,19 @@ export const Route = createFileRoute("/contact")({
 });
 
 const inputClass =
-  "w-full rounded-xl border border-input bg-transparent px-4 py-3 font-sans text-sm text-foreground outline-none placeholder:text-muted-foreground/70 focus:border-accent/60";
+  "w-full border border-input bg-background px-4 py-3 font-sans text-sm text-foreground outline-none placeholder:text-muted-foreground/70 focus:border-accent";
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
 
   return (
-    <main className="mx-auto max-w-6xl px-6 pb-24 pt-16 lg:pt-24">
+    <main className="mx-auto max-w-7xl px-6 pb-28 pt-20 lg:px-8 lg:pt-28">
       <div className="grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-6">
           <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-accent">
             Join the club
           </p>
-          <h1 className="text-balance font-serif text-5xl font-semibold leading-[1.02] tracking-tight text-foreground md:text-6xl">
+          <h1 className="text-balance font-serif text-6xl leading-[1.02] text-primary md:text-7xl">
             Let readers discover your book.
           </h1>
           <p className="mt-8 max-w-[48ch] text-pretty font-sans text-lg leading-relaxed text-muted-foreground">
@@ -81,7 +81,7 @@ function ContactPage() {
 
         <div className="lg:col-span-6">
           {sent ? (
-            <div className="grid h-full min-h-[24rem] place-items-center rounded-3xl bg-primary p-10 text-center text-primary-foreground">
+            <div className="grid h-full min-h-[24rem] place-items-center bg-primary p-10 text-center text-primary-foreground">
               <div>
                 <p className="font-mono text-xs uppercase tracking-[0.22em] text-accent">
                   Letter received
@@ -97,7 +97,7 @@ function ContactPage() {
             </div>
           ) : (
             <form
-              className="rounded-3xl border border-border bg-card p-8 md:p-10"
+              className="border border-primary/25 bg-card p-8 shadow-[12px_12px_0_var(--color-secondary)] md:p-10"
               onSubmit={(e) => {
                 e.preventDefault();
                 setSent(true);
@@ -140,7 +140,7 @@ function ContactPage() {
               </label>
               <button
                 type="submit"
-                className="mt-7 w-full rounded-full bg-primary px-7 py-3.5 font-sans text-sm font-medium text-primary-foreground ring-1 ring-primary transition-transform hover:-translate-y-0.5"
+                className="mt-7 w-full bg-primary px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 MESSAGE US NOW
               </button>

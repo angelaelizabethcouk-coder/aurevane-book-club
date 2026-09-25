@@ -25,11 +25,11 @@ export const Route = createFileRoute("/books")({
 
 function BooksPage() {
   return (
-    <main className="mx-auto max-w-6xl px-6 pb-24 pt-16 lg:pt-24">
+    <main className="mx-auto max-w-7xl px-6 pb-28 pt-20 lg:px-8 lg:pt-28">
       <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-accent">
         The catalogue
       </p>
-      <h1 className="max-w-[18ch] text-balance font-serif text-5xl font-semibold leading-[1.02] tracking-tight text-foreground md:text-6xl">
+      <h1 className="max-w-[18ch] text-balance font-serif text-6xl leading-[1.02] text-primary md:text-7xl">
         Every book we've argued about, kindly.
       </h1>
       <p className="mt-8 max-w-[52ch] text-pretty font-sans text-lg leading-relaxed text-muted-foreground">
@@ -37,14 +37,14 @@ function BooksPage() {
         member vote and survived at least one long evening of discussion.
       </p>
 
-      <div className="mt-16 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {books.map((book, i) => (
           <article
             key={book.title}
-            className="group animate-rise"
+            className={`group animate-rise p-4 ${i % 2 === 0 ? "bg-card" : "bg-secondary/55"} ${i % 2 === 1 ? "lg:mt-14" : ""}`}
             style={{ animationDelay: `${(i % 4) * 80}ms` }}
           >
-            <div className="overflow-hidden rounded-xl ring-1 ring-border transition-transform duration-300 group-hover:-translate-y-1.5">
+            <div className="overflow-hidden ring-1 ring-border transition-transform duration-500 group-hover:-translate-y-1.5">
               <img
                 src={book.cover}
                 alt={`Cover of ${book.title} by ${book.author}`}

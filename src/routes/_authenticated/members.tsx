@@ -38,7 +38,7 @@ export const Route = createFileRoute("/_authenticated/members")({
 });
 
 const inputClass =
-  "mt-2 w-full rounded-xl border border-border bg-card px-4 py-3 font-sans text-sm text-foreground outline-none transition-colors focus:border-primary";
+  "mt-2 w-full border border-border bg-background px-4 py-3 font-sans text-sm text-foreground outline-none transition-colors focus:border-accent";
 
 function MembersPage() {
   const { user } = Route.useRouteContext();
@@ -151,11 +151,11 @@ function MembersPage() {
   const profile = profileQuery.data;
 
   return (
-    <main className="mx-auto max-w-4xl px-6 pb-24 pt-16 lg:pt-24">
+    <main className="mx-auto max-w-5xl px-6 pb-28 pt-20 lg:px-8 lg:pt-28">
       <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-accent">
         Members only
       </p>
-      <h1 className="font-serif text-4xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-5xl">
+      <h1 className="font-serif text-5xl leading-[1.05] text-primary md:text-6xl">
         Your reading room.
       </h1>
       <p className="mt-5 max-w-[52ch] font-sans text-muted-foreground">
@@ -163,7 +163,7 @@ function MembersPage() {
         discussions.
       </p>
 
-      <section className="mt-12 rounded-3xl border border-border bg-card p-6 md:p-8">
+      <section className="mt-12 border border-primary/25 bg-card p-6 shadow-[10px_10px_0_var(--color-secondary)] md:p-8">
         <div className="flex flex-wrap items-center gap-5">
           <MemberAvatar
             name={profile?.display_name ?? "Reader"}
@@ -188,7 +188,7 @@ function MembersPage() {
             type="button"
             onClick={() => saveProfile.mutate({})}
             disabled={saveProfile.isPending}
-            className="rounded-full bg-primary px-5 py-2.5 font-sans text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5 disabled:opacity-60"
+             className="bg-primary px-5 py-3 font-sans text-xs font-semibold uppercase tracking-[0.12em] text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground disabled:opacity-60"
           >
             Save profile
           </button>
@@ -196,7 +196,7 @@ function MembersPage() {
             type="button"
             onClick={() => fileRef.current?.click()}
             disabled={uploadAvatar.isPending}
-            className="rounded-full px-5 py-2.5 font-sans text-sm font-medium text-primary ring-1 ring-primary/40 transition-colors hover:bg-accent-soft/40 disabled:opacity-60"
+             className="px-5 py-3 font-sans text-xs font-semibold uppercase tracking-[0.12em] text-primary ring-1 ring-primary transition-colors hover:border-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-60"
           >
             {uploadAvatar.isPending ? "Uploading…" : "Change photo"}
           </button>
@@ -213,7 +213,7 @@ function MembersPage() {
           />
           <Link
             to="/threads"
-            className="rounded-full px-5 py-2.5 font-sans text-sm font-medium text-foreground ring-1 ring-border transition-colors hover:bg-accent-soft/30"
+             className="px-5 py-3 font-sans text-xs font-semibold uppercase tracking-[0.12em] text-primary ring-1 ring-primary transition-colors hover:border-accent hover:text-accent"
           >
             Discussion threads →
           </Link>
@@ -225,7 +225,7 @@ function MembersPage() {
           Send a proposal
         </h2>
         <form
-          className="mt-6 space-y-5 rounded-3xl border border-border bg-card p-6 md:p-8"
+           className="mt-6 space-y-5 border border-primary/25 bg-card p-6 md:p-8"
           onSubmit={(e) => {
             e.preventDefault();
             addProposal.mutate();
@@ -268,7 +268,7 @@ function MembersPage() {
           <button
             type="submit"
             disabled={addProposal.isPending}
-            className="rounded-full bg-primary px-6 py-3 font-sans text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5 disabled:opacity-60"
+             className="bg-primary px-6 py-3 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground disabled:opacity-60"
           >
             {addProposal.isPending ? "Sending…" : "Send proposal"}
           </button>

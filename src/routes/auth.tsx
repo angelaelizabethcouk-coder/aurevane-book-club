@@ -72,19 +72,19 @@ function AuthPage() {
   }
 
   const inputClass =
-    "mt-2 w-full rounded-xl border border-border bg-card px-4 py-3 font-sans text-sm text-foreground outline-none transition-colors focus:border-primary";
+    "mt-2 w-full border border-border bg-card px-4 py-3 font-sans text-sm text-foreground outline-none transition-colors focus:border-accent";
 
   return (
-    <main className="mx-auto max-w-md px-6 pb-24 pt-16 lg:pt-24">
+    <main className="mx-auto max-w-lg px-6 pb-28 pt-20 lg:pt-28">
       <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-accent">
         Members
       </p>
-      <h1 className="font-serif text-4xl font-semibold leading-[1.05] tracking-tight text-foreground">
+      <h1 className="font-serif text-5xl leading-[1.05] text-primary md:text-6xl">
         {mode === "signin" ? "Sign in to your seat." : "Take a seat at the table."}
       </h1>
 
       {sent ? (
-        <div className="mt-8 rounded-2xl border border-border bg-card p-6">
+        <div className="mt-8 border border-primary/25 bg-card p-7">
           <p className="font-sans text-sm leading-relaxed text-muted-foreground">
             Check your inbox — we've sent a confirmation link to{" "}
             <span className="text-foreground">{email}</span>. Click it to finish
@@ -92,7 +92,7 @@ function AuthPage() {
           </p>
         </div>
       ) : (
-        <form onSubmit={onSubmit} className="mt-8 space-y-5">
+        <form onSubmit={onSubmit} className="mt-8 space-y-5 border border-primary/25 bg-card p-7 shadow-[10px_10px_0_var(--color-secondary)]">
           {mode === "signup" && (
             <label className="block">
               <span className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
@@ -139,7 +139,7 @@ function AuthPage() {
           <button
             type="submit"
             disabled={busy}
-            className="w-full rounded-full bg-primary px-6 py-3.5 font-sans text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5 disabled:opacity-60"
+            className="w-full bg-primary px-6 py-4 font-sans text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground disabled:opacity-60"
           >
             {busy ? "One moment…" : mode === "signin" ? "Sign in" : "Create my membership"}
           </button>
@@ -154,7 +154,7 @@ function AuthPage() {
             setMode(mode === "signin" ? "signup" : "signin");
             setSent(false);
           }}
-          className="text-foreground underline underline-offset-4"
+          className="text-primary underline decoration-accent underline-offset-4 hover:text-accent"
         >
           {mode === "signin" ? "Create a membership" : "Sign in instead"}
         </button>

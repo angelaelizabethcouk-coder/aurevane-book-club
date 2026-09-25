@@ -44,11 +44,11 @@ const principles = [
 function AboutPage() {
   return (
     <main>
-      <section className="mx-auto max-w-6xl px-6 pb-16 pt-16 lg:pt-24">
+      <section className="mx-auto max-w-7xl px-6 pb-20 pt-20 lg:px-8 lg:pt-28">
         <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-accent">
           About the club
         </p>
-        <h1 className="max-w-[16ch] text-balance font-serif text-5xl font-semibold leading-[1.02] tracking-tight text-foreground md:text-6xl">
+        <h1 className="max-w-[16ch] text-balance font-serif text-6xl leading-[1.02] text-primary md:text-7xl">
           A library that remembers your name.
         </h1>
         <p className="mt-8 max-w-[52ch] text-pretty font-sans text-lg leading-relaxed text-muted-foreground">
@@ -64,7 +64,7 @@ function AboutPage() {
         </p>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-20">
+      <section className="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <img
@@ -73,7 +73,7 @@ function AboutPage() {
               width={1024}
               height={1280}
               loading="lazy"
-              className="aspect-[4/5] w-full rounded-3xl object-cover outline-1 -outline-offset-1 outline-foreground/5"
+              className="aspect-[4/5] w-full border-[10px] border-secondary object-cover outline-1 -outline-offset-1 outline-primary/10"
             />
           </div>
           <div className="lg:col-span-7">
@@ -97,15 +97,15 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-background/60">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 sm:grid-cols-3">
+       <section className="bg-primary text-primary-foreground">
+         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 sm:grid-cols-3 lg:px-8">
           {[
             { value: "2019", label: "Founded by lamplight" },
             { value: "84", label: "Books read together" },
             { value: "300+", label: "Members at the table" },
           ].map((stat) => (
             <div key={stat.label}>
-              <p className="font-serif text-5xl font-medium text-foreground">{stat.value}</p>
+               <p className="font-serif text-6xl text-primary-foreground">{stat.value}</p>
               <p className="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-accent">
                 {stat.label}
               </p>
@@ -114,13 +114,13 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20 text-center">
-        <h2 className="text-balance font-serif text-4xl font-medium text-foreground md:text-5xl">
+       <section className="mx-auto max-w-7xl px-6 py-24 text-center lg:px-8">
+         <h2 className="text-balance font-serif text-5xl text-primary md:text-6xl">
           The table has a seat for you.
         </h2>
         <Link
           to="/contact"
-          className="mt-8 inline-block rounded-full bg-primary px-8 py-4 font-sans text-sm font-medium text-primary-foreground ring-1 ring-primary transition-transform hover:-translate-y-0.5"
+           className="mt-8 inline-block bg-primary px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
         >
           Join the Club
         </Link>
